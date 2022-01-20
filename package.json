@@ -1,0 +1,19 @@
+{
+  "name": "gsc-bigquery",
+  "version": "1.0.0",
+  "description": "Export Google Search Console data to BigQuery",
+  "main": "index.js",
+  "scripts": {
+    "test": "node -e \"require('./index').getNewData({data: Buffer.from('pub/sub test message').toString('base64')})\"",
+    "deploy-gcloud": "gcloud functions deploy gsc-bigquery --region=europe-west3 --entry-point=getNewData  --runtime=nodejs16 --ingress-settings=internal-only --memory=2048MB --trigger-topic=run-search-console-export --timeout=240s --ignore-file=.gitignore --env-vars-file=.env.yml"
+
+  },
+  "author": "Taneli Salonen",
+  "license": "ISC",
+  "dependencies": {
+    "@google-cloud/bigquery": "^5.10.0",
+    "dotenv-yaml": "^0.1.4",
+    "googleapis": "^92.0.0",
+    "md5": "^2.3.0"
+  }
+}
