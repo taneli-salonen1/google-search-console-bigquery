@@ -65,10 +65,12 @@ const gscRequest = async (startDate, endDate, rowLimit, startRow, dimensions) =>
             dataState: 'final'
         });
 
+        //console.log(res.data);
         return res.data;
     } catch (e) {
-        console.log(`Search console request failed with status ${e.status}`);
-        console.log(e);
+        const errorMsg = e.errors ? e.errors[0]?.message : 'none';
+        console.log(`Search console request failed with message: ${errorMsg}`);
+        if (errorMsg === 'none') console.log(e);
     }
 
 };
