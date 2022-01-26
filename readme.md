@@ -8,3 +8,6 @@ Functionality:
 3. The BigQuery table is queried to see how fresh the data there is.
 4. Search Console API is requested for new data that doesn't already exist in BigQuery.
 5. New data is sent to BigQuery.
+
+For a tutorial how to set up the export check this blog post:
+https://tanelytics.com/export-google-search-console-data-to-bigquery-using-cloud-functions/

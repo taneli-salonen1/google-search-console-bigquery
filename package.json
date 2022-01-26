@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "node -e \"require('./index').getNewData({data: Buffer.from('pub/sub test message').toString('base64')})\"",
-    "deploy-gcloud": "gcloud functions deploy gsc-bigquery --region=europe-west3 --entry-point=getNewData  --runtime=nodejs16 --ingress-settings=internal-only --memory=2048MB --trigger-topic=run-search-console-export --timeout=240s --ignore-file=.gitignore --env-vars-file=.env.yml"
+    "deploy-gcloud": "gcloud functions deploy gsc-bigquery --region=europe-west3 --entry-point=getNewData  --runtime=nodejs16 --source=gs://tanelytics_shared/gsc_function_source.zip --ingress-settings=internal-only --memory=2048MB --trigger-topic=run-search-console-export --timeout=240s --ignore-file=.gitignore --env-vars-file=.env.yml"
 
   },
   "author": "Taneli Salonen",
